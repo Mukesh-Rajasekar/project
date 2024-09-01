@@ -1,0 +1,25 @@
+<mat-toolbar class="navbar-bg">
+  <div class="container-fluid">
+    <div class="d-flex flex-wrap align-items-center justify-content-between">
+      <div>
+        
+        <ul class="nav">
+          <li><a routerLink="/home" class="nav-link px-1 text-white">Home</a></li>
+          <li><a routerLink="/favourite-restaurant" class="nav-link px-3 text-white">Favourite Restaurant</a></li>
+          <li><a routerLink="/login" class="nav-link px-3 text-white">Favourite Cuisine</a></li>
+        </ul>
+      </div>
+
+      <div class="title">
+        Foodie App
+      </div>
+
+      <div>
+        <button  class="btn" (click)="navigateToLogin()">Login</button>
+        <button   class="btn" (click)="navigateToSignup()">Sign-up</button>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

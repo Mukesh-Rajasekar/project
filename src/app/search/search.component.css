@@ -1,0 +1,15 @@
+
+.search-container {
+  margin: 20px;
+  margin-left:20%;
+  text-align: center;
+  width: 30%; 
+  display: inline-block;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}

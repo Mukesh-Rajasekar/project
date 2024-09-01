@@ -1,0 +1,57 @@
+/* Apply a light blue background color to the entire page */
+.body-container {
+    /* background-color: #e0f7fa;  */
+    margin: 0;
+    font-family: Arial, sans-serif; /* Basic font for the page */
+  }
+  
+  /* Styles for the card container */
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Space between cards */
+    justify-content: center; /* Center cards horizontally */
+    padding: 20px; /* Space around the container */
+  }
+  
+  /* Styles for individual cards */
+  .card {
+    background-color: #fff; /* White background for cards */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden; /* Ensure content doesn't overflow card */
+    width: 300px; /* Fixed width for consistency */
+    margin: 10px; /* Margin around each card */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+  }
+  
+  /* Styles for the card image */
+  .card-image {
+    width: 100%; /* Make image fill the card width */
+    height: 70%; /* Image occupies 70% of the card's height */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+  }
+  
+  /* Styles for the card content */
+  .card-content {
+    padding: 15px; /* Padding inside the card content */
+    text-align: center; /* Center text within card content */
+  }
+  
+  .card-content h4 {
+    margin: 0 0 10px; /* Margin below heading */
+    font-size: 1.2em; /* Slightly larger font size for headings */
+    color: #333; /* Dark color for text */
+  }
+  
+  .card-content p {
+    margin: 5px 0; /* Margin for paragraphs */
+    color: #666; /* Lighter color for text */
+  }
+  
+  /* Hover effect for cards */
+  .card:hover {
+    transform: translateY(-5px); /* Slightly lift the card */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  }
+  

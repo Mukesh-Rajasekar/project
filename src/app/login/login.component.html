@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card p-4 shadow-sm">
+        <h3 class="text-center mb-4">Login</h3>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="form-group mb-3">
+            <label for="userId" class="form-label">User Id</label>
+            <input type="text" id="userId" class="form-control" formControlName="userId">
+            <div *ngIf="loginForm.get('userId')?.invalid && loginForm.get('userId')?.touched" class="text-danger">
+              Enter valid user Id
+            </div>
+          </div>
+
+          <div class="form-group mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" id="password" class="form-control" formControlName="password">
+            <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
+              Password is required.
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+          </div>
+        </form>
+
+        <div class="text-center mt-3">
+          <small>Don't have an account? <a routerLink="/signup" class="text-primary">Sign Up</a></small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

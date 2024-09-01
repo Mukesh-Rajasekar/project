@@ -1,0 +1,42 @@
+.restaurant-detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.restaurant-detail-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.restaurant-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.restaurant-detail-card h2 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.restaurant-detail-card p {
+  font-size: 1.2em;
+  margin: 10px 0;
+  color: #555;
+}
+
+.restaurant-detail-card p strong {
+  color: #333;
+}

@@ -1,0 +1,134 @@
+{
+    "restaurants": [
+      {
+        "restaurantId": "R001",
+        "name": "Ofen",
+        "location": "Banjara Hills, Hyderabad",
+        "imagePath": "assets/images/ofen.jpg",
+        "cuisine": [{
+          "cuisineId": 1,
+          "name": "Cafe, Coffee, Sandwich, It...",
+          "type": "Indian",
+          "description": "A cozy cafe offering freshly brewed coffee, handcrafted sandwiches, and light Italian bites, perfect for a quick snack or a relaxed meal."
+          
+        }]
+      },
+      {
+        "restaurantId": "R002",
+        "name": "One8 Commune",
+        "location": "Jubilee Hills, Hyderabad",
+        "imagePath": "assets/images/one8-commune.jpg",
+        "cuisine": [{
+          "cuisineId": 2,
+          "name": "European, Continental, Piz..",
+          "type": "Indian",
+          "description": "Indulge in a fusion of European and Continental cuisines with a touch of Indian flavors, featuring wood-fired pizzas and gourmet dishes."
+          
+        }]
+      },
+      {
+        "restaurantId": "R003",
+        "name": "Mindsapce Social",
+        "location": "Jubilee Hills, Hyderabad",
+        "imagePath": "assets/images/mindspace-social.jpg",
+        "cuisine": [{
+          "cuisineId": 3,
+          "name": "Hyderabadi, Kebab, Mo..",
+          "type": "Indian",
+          "description": "Savor authentic Hyderabadi dishes, including succulent kebabs and rich biryanis, complemented by refreshing mocktails."
+          
+        }]
+      },
+      {
+        "restaurantId": "R004",
+        "name": "White Hart",
+        "location": "Chennai",
+        "imagePath": "assets/images/white-hart.jpg",
+        "cuisine": [{
+          "cuisineId": 4,
+          "name": "North Indian, Mughlai, Continental, Ita...",
+          "type": "Indian",
+          "description": "A culinary journey through North Indian, Mughlai, and Continental flavors, with an emphasis on aromatic spices and traditional cooking techniques."
+          
+        }]
+      },
+      {
+        "restaurantId": "R005",
+        "name": "Nayab Cafe",
+        "location": "Hi-tech City",
+        "imagePath": "assets/images/nayab-cafe.jpg",
+        "cuisine": [{
+          "cuisineId": 5,
+          "name": "Cafe, Coffee, Beverages",
+          "type": "Indian",
+          "description": "A modern cafe serving a variety of coffee blends and refreshing beverages, paired with light snacks and desserts for a perfect break."
+          
+        }]
+      },
+      {
+        "restaurantId": "R006",
+        "name": "You Mee",
+        "location": "Kukatpally, Hyderabad",
+        "imagePath": "assets/images/you-mee.jpg",
+        "cuisine": [{
+          "cuisineId": 6,
+          "name": "Asian, Japanese, Sushi, Chi...",
+          "type": "Indian",
+          "description": "An Asian culinary experience featuring Japanese sushi, Chinese dim sum, and other delicacies, crafted with authentic ingredients and techniques."
+        }]
+      },
+      {
+        "restaurantId": "R007",
+        "name": "TGI Fridays",
+        "location": "Nexus Hyderabad, Kukatpally, Hyderabad",
+        "imagePath": "assets/images/tgi-fridays.jpg",
+        "cuisine": [{
+          "cuisineId": 7,
+          "name": "American, Burger, Italian, Bev...",
+          "type": "Indian",
+          "description": "Classic American diner experience with juicy burgers, Italian pastas, and a wide range of beverages in a lively atmosphere."
+          
+        }]
+      },
+      {
+        "restaurantId": "R008",
+        "name": "The Punjabis Swag",
+        "location": "Kondapur, Hyderabad",
+        "imagePath": "assets/images/thePunjabi-swags.jpg",
+        "cuisine": [{
+          "cuisineId": 8,
+          "name": "North Indian, Mughlai",
+          "type": "Indian",
+          "description": "A tribute to Punjabi cuisine with rich and flavorful dishes, from creamy butter chicken to aromatic biryanis."
+          
+        }]
+      },
+      {
+        "restaurantId": "R009",
+        "name": "Cup Theory",
+        "location": "Madhapur, Hyderabad",
+        "imagePath": "assets/images/cup-theory.jpg",
+        "cuisine": [{
+          "cuisineId": 9,
+          "name": "Cafe, Continental, Pizza, Burg..",
+          "type": "Indian",
+          "description": "A trendy cafe offering a mix of continental dishes, artisanal pizzas, and gourmet burgers, perfect for casual dining."
+          
+        }]
+      },
+      {
+        "restaurantId": "R010",
+        "name": "WOW! Momo",
+        "location": "Moosapet, Hyderabad",
+        "imagePath": "assets/images/wow-momo.jpg",
+        "cuisine": [{
+          "cuisineId": 10,
+          "name": "Momos, Fast Food, Beverages, Desserts",
+          "type": "Indian",
+          "description": "A fast-food haven for momo lovers, offering a wide variety of stuffed momos, along with quick snacks, beverages, and desserts."
+          
+      }]
+    }
+    ]
+  }
+  

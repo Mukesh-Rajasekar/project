@@ -1,0 +1,46 @@
+
+
+<div class = "card-body">
+  <app-search (searchChanged)="filterData($event)"></app-search>
+<div class="filter-container">
+  
+  <select id="location-filter" (change)="filterByLocation($event)">
+    <option value="">All Locations</option>
+    <option *ngFor="let location of locations" [value]="location">{{ location }}</option>
+  </select>
+</div>
+
+<div class="card-container">
+  <div class="card" *ngFor="let card of filteredData" (click)="viewDetails(card.restaurantId)">
+    <img [src]="card.imagePath" alt="{{ card.name }}" class="card-image"/>
+    <div class="card-content">
+      <h4>{{ card.name }}</h4>
+    <p>{{ card.cuisine[0].name }}</p>
+    <p>{{ card.location }}</p>
+    </div>
+    <button 
+        class="favorite-button" 
+        [ngClass]="{'favorited': card.isFavorited}" 
+        (click)="toggleFavorite(card,$event)">
+        <mat-icon>favorite</mat-icon>
+      </button>
+  </div>
+
+</div>
+
+</div>
+
+
+<!-- <app-search (searchChanged)="filterData($event)"></app-search>
+
+<div class="card-container">
+  <div class="card" *ngFor="let card of filteredData">
+    <a  [routerLink]="['/restaurant', card.restaurantId]">
+    <img [src]="card.imagePath" alt="{{ card.name }}" class="card-image"/>
+    <h4>{{ card.name }}</h4>
+    <p>{{ card.cuisine.name }}</p>
+    <p>{{ card.location }}</p>
+  </a>
+  </div>
+</div> -->
+
