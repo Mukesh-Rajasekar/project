@@ -59,15 +59,23 @@ export class RestaurantCardComponent implements OnInit {
 
   toggleFavorite(card: any, event: Event) {
     event.stopPropagation();
-    console.log("Data passed once toggle button is pressed : " + card.restaurantId);
-    this.user.addFav(card.restaurantId).subscribe(
-      response => {
-        console.log("Successfully added to favorites:", response);
-      },
-      error => {
-        console.error("Error adding to favorites:", error);
-      }
-    );
-    card.isFavorited = !card.isFavorited;
-  }
+
+    if (!card.isFavorited) {
+        this.user.addFav(card.restaurantId).subscribe(
+            response => {
+                console.log("Successfully added to favorites:", response);
+                card.isFavorited = true;
+            },
+            error => {
+                if (error.status === 409) {
+                    console.error("Restaurant is already in favorites");
+                    alert("This restaurant is already in your favorites.");
+                } else {
+                    console.error("Error adding to favorites:", error);
+                }
+            }
+        );
+    }
+}
+
 }
