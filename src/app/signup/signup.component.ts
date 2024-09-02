@@ -12,9 +12,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class SignupComponent {
   signupForm: FormGroup;
-  u:User = {};
+  u: User = {};
 
-  constructor(private snackBar:MatSnackBar,private fb: FormBuilder, private user:UserService, private r: Router) {
+  constructor(private snackBar: MatSnackBar, private fb: FormBuilder, private user: UserService, private r: Router) {
     this.signupForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       email: ['', [Validators.required, Validators.email]],
@@ -31,26 +31,31 @@ export class SignupComponent {
       console.log(username);
       console.log(email);
       console.log(password);
-      this.u.email=email;
-      this.u.password=password;
-      this.u.username=username;
-      const timestamp = new Date().getTime(); 
-  const randomNumber = Math.floor(Math.random() * 10000);
-  const uniqueId = timestamp+randomNumber;
-  const stringValue: string = uniqueId.toString();
-      this.u.userId=stringValue;
+      this.u.email = email;
+      this.u.password = password;
+      this.u.username = username;
+      const timestamp = new Date().getTime();
+      const randomNumber = Math.floor(Math.random() * 10000);
+      const uniqueId = timestamp + randomNumber;
+      const stringValue: string = uniqueId.toString();
+      this.u.userId = stringValue;
       this.user.registerUser(this.u).subscribe(
         (response: any) => {
-        console.log(response);
-         alert("SignUp successful");
-        this.r.navigateByUrl("home");
-      },
-      (err) => {
-        this.snackBar.open("Provide Valid Credentials","Try Again",{
-          duration: 3000
-        });
-        console.log(err.message);
-      })
+          console.log(response);
+          alert(`Kindly Note UserId provided Below As it is essential for login
+
+            userId: ${this.u.userId}`);
+          this.snackBar.open("SignUp Successfully", "Done", {
+            duration: 3000
+          });
+          this.r.navigateByUrl("home");
+        },
+        (err) => {
+          this.snackBar.open("Provide Valid Credentials", "Try Again", {
+            duration: 3000
+          });
+          console.log(err.message);
+        })
 
     }
   }

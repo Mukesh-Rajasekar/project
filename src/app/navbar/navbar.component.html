@@ -3,9 +3,9 @@
     <div class="d-flex flex-wrap align-items-center justify-content-between">
       <div>
         <ul class="nav">
-          <li><a routerLink="/home" class="nav-link px-1 text-white">Home</a></li>
-          <li><a routerLink="/favourite-restaurant" class="nav-link px-3 text-white">Favourite Restaurant</a></li>
-          <li><a routerLink="/login" class="nav-link px-3 text-white">Favourite Cuisine</a></li>
+          <li><a routerLink="/home" class="nav-link px-2 text-white">Home</a></li>
+          <li><a routerLink="/favourite-restaurant" class="nav-link px-2 text-white">Favourite Restaurant</a></li>
+          <li><a routerLink="/login" class="nav-link px-2 text-white">Favourite Cuisine</a></li>
         </ul>
       </div>
 
@@ -14,8 +14,8 @@
       </div>
 
       <div>
-        <button *ngIf="!isLoggedIn" class="btn" (click)="navigateToLogin()">Login</button>
-        <button *ngIf="isLoggedIn" class="btn" (click)="logout()">Logout</button>
+        <button *ngIf="!isUserLoggedIn()" class="btn" (click)="navigateToLogin()">Login</button>
+        <button *ngIf="isUserLoggedIn()" class="btn" (click)="logOut()">Logout</button>
       </div>
     </div>
   </div>
