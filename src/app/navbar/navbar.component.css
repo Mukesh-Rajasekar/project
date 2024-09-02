@@ -1,8 +1,7 @@
+/* Base styles */
 body {
   padding-bottom: 20px;
 }
-
-
 
 .navbar-bg {
   position: relative;
@@ -23,18 +22,30 @@ body {
   background-color: rgba(0, 0, 0, 0.5); 
   z-index: 1; 
 }
-.nav{
+
+.nav {
   font-family: 'Georgia', serif;
   margin-bottom:49%;
-  font-weight:bold;
+  font-weight: bold;
+  margin-top: 150px;
 }
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ff6347; /* Changes text color on hover and active */
+  background-color: rgba(255, 255, 255, 0.1); /* Light background on hover/active */
+  transform: scale(1.1); /* Slightly enlarges the link */
+}
+
 .title {
   font-family: 'Georgia', serif; 
   color: #ffffff;
   font-size: 66px;
   font-weight: bold;
   margin-right:20%;
+ margin-top: 50px;
 }
+
 .container-fluid {
   position: relative;
   z-index: 2; 
@@ -50,3 +61,9 @@ body {
   font-family: 'Georgia', serif;
   font-weight:bold; 
 }
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Light background on hover/active */
+  transform: scale(1.1); 
+}
+

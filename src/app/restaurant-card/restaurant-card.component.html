@@ -3,7 +3,6 @@
 <div class = "card-body">
   <app-search (searchChanged)="filterData($event)"></app-search>
 <div class="filter-container">
-  
   <select id="location-filter" (change)="filterByLocation($event)">
     <option value="">All Locations</option>
     <option *ngFor="let location of locations" [value]="location">{{ location }}</option>
