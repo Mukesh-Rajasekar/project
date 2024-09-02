@@ -6,6 +6,7 @@ import { RestaurantCardComponent } from './restaurant-card/restaurant-card.compo
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
 import { LoginComponent } from './login/login.component';
 import { DummyComponent } from './dummy/dummy.component';
+import { AuthGuard } from './auth.guard';
 
 
 
@@ -15,7 +16,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'restaurant/:id', component: RestaurantDetailComponent },
   { path: 'login', component: LoginComponent },
-  {path:'favourite-restaurant',component:DummyComponent}
+  { path: 'favourite-restaurant', component: LoginComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
