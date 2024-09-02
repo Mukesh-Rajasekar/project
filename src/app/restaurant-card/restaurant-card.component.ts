@@ -4,6 +4,7 @@ import { RestaurantServiceService } from '../restaurant-service.service';
 import { User } from 'src/model/user';
 import { UserService } from '../user.service';
 import { LoginService } from '../login.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-restaurant-card',
@@ -17,6 +18,7 @@ export class RestaurantCardComponent implements OnInit {
   u:string = "";
 
   constructor(
+    private snackBar:MatSnackBar,
     private restaurantData: RestaurantServiceService,  
     private router: Router,
     private user:UserService,
@@ -64,12 +66,18 @@ export class RestaurantCardComponent implements OnInit {
         this.user.addFav(card.restaurantId).subscribe(
             response => {
                 console.log("Successfully added to favorites:", response);
+                this.snackBar.open("Successfully Added","Done",{
+                  duration: 3000
+                });
                 card.isFavorited = true;
             },
             error => {
                 if (error.status === 409) {
                     console.error("Restaurant is already in favorites");
-                    alert("This restaurant is already in your favorites.");
+
+                    this.snackBar.open("This restaurant is already in your favorites.","Try Others",{
+                      duration: 3000
+                    });
                 } else {
                     console.error("Error adding to favorites:", error);
                 }

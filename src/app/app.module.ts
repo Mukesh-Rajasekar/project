@@ -19,6 +19,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { RestaurantServiceService } from './restaurant-service.service';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -40,8 +44,11 @@ import { RestaurantServiceService } from './restaurant-service.service';
     RouterModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatIconModule
-    
+    MatIconModule,
+    MatSnackBarModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [
     UserService,

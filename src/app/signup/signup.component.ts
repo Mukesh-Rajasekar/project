@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { User } from '../../model/user';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +14,7 @@ export class SignupComponent {
   signupForm: FormGroup;
   u:User = {};
 
-  constructor(private fb: FormBuilder, private user:UserService, private r: Router) {
+  constructor(private snackBar:MatSnackBar,private fb: FormBuilder, private user:UserService, private r: Router) {
     this.signupForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       email: ['', [Validators.required, Validators.email]],
@@ -45,7 +46,9 @@ export class SignupComponent {
         this.r.navigateByUrl("home");
       },
       (err) => {
-        alert("invalid credentials")
+        this.snackBar.open("Provide Valid Credentials","Try Again",{
+          duration: 3000
+        });
         console.log(err.message);
       })
 
