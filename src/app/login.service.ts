@@ -45,7 +45,9 @@ getToken() {
 
 logout()
   {
+    localStorage.removeItem("token");
     this.loggedIn=false;
+    
   }
 
   isLoggedIn() {

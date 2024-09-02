@@ -77,7 +77,8 @@ export class SignupComponent {
       this.user.registerUser(this.u).subscribe(
         (response: any) => {
         console.log(response);
-         alert("SignUp successful");
+        alert(`Kindly Note UserId provided Below As it is essential for login
+          userId: ${this.u.userId}`);
         this.r.navigateByUrl("home");
       },
       (err) => {
