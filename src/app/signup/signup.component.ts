@@ -19,12 +19,7 @@ export class SignupComponent {
   signupForm: FormGroup;
   u: User = {};
 
-  constructor(
-    private snackBar: MatSnackBar,
-    private fb: FormBuilder,
-    private user: UserService,
-    private r: Router
-  ) {
+  constructor(private snackBar:MatSnackBar,private fb: FormBuilder, private user:UserService, private r: Router) {
     this.signupForm = this.fb.group({
       username: [  '', [Validators.required, Validators.minLength(3),Validators.maxLength(50),
           Validators.pattern('^[a-zA-Z][a-zA-Z0-9]*$'),
@@ -81,19 +76,17 @@ export class SignupComponent {
       this.u.userId = stringValue;
       this.user.registerUser(this.u).subscribe(
         (response: any) => {
-          console.log(response);
-          this.snackBar.open('Sign Up successful', 'Close', {
-            duration: 3000,
-          });
-          this.r.navigateByUrl('home');
-        },
-        (err) => {
-          this.snackBar.open('Provide Valid Credentials', 'Try Again', {
-            duration: 3000,
-          });
-          console.log(err.message);
-        }
-      );
+        console.log(response);
+         alert("SignUp successful");
+        this.r.navigateByUrl("home");
+      },
+      (err) => {
+        this.snackBar.open("Provide Valid Credentials","Try Again",{
+          duration: 3000
+        });
+        console.log(err.message);
+      })
+
     }
   }
 }

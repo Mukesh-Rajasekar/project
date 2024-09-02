@@ -7,7 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class SearchComponent {
   searchTerm: string = '';
-  
+
   @Output() searchChanged: EventEmitter<string> = new EventEmitter<string>();
 
 
@@ -15,5 +15,5 @@ export class SearchComponent {
     this.searchChanged.emit(this.searchTerm);
   }
 
-  
+
 }
