@@ -14,41 +14,49 @@ interface TokenPayload {
 })
 export class LoginService {
   // isBrowser: boolean;
-  url:string="http://localhost:8765/api/v1/";
-  
-  constructor(private httpClient:HttpClient) {
+  url: string = "http://localhost:8765/api/v1/";
+
+  constructor(private httpClient: HttpClient) {
     // this.isBrowser = typeof window !== 'undefined';
-   }
-   
-  loggedIn=false;
+  }
+
+  loggedIn = false;
   //  public myToken:string = "";
 
+  
+
   generateToken(user: User): Observable<any> {
-    
+
     return this.httpClient.post<any>(this.url + 'login', user);
   }
 
-  loginUser(token: any) {
+  loginUser(token: any,username: string) {
     localStorage.setItem('token', token);// api+token
-   console.log("Getting Token: " + this.getToken());
-    this.loggedIn=true;
+    localStorage.setItem('username', username); // Store the username
+    console.log("Getting Token: " + this.getToken());
+    this.loggedIn = true;
     return true;
-}
+  }
 
-getToken() {
+  getUsername(): string | null {
+    return localStorage.getItem('username');
+  }
+
+  getToken() {
     return localStorage.getItem('token');
   }
 
-// getToken() {
-//   return localStorage.getItem('token');
-// }
+  // getToken() {
+  //   return localStorage.getItem('token');
+  // }
 
-logout()
-  {
+  logout() {
     localStorage.removeItem("token");
-    this.loggedIn=false;
-    
+    this.loggedIn = false;
+
   }
+
+  
 
   isLoggedIn() {
     let token = localStorage.getItem('token');

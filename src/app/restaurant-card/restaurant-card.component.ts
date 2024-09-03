@@ -25,6 +25,10 @@ export class RestaurantCardComponent implements OnInit {
     private login: LoginService
   ) { }
 
+  isLoggedIn(): boolean {
+    return this.login.isLoggedIn();
+  }
+
   ngOnInit(): void {
     this.restaurantData.getRestaurant().subscribe(data => {
       this.rData = data;
@@ -75,7 +79,7 @@ export class RestaurantCardComponent implements OnInit {
           if (error.status === 409) {
             console.error("Restaurant is already in favorites");
 
-            this.snackBar.open("This restaurant is already in your favorites.", "Try Others", {
+            this.snackBar.open("This restaurant is already in your favorite list", "Try Others", {
               duration: 3000
             });
           } else {

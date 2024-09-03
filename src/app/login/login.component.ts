@@ -12,9 +12,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  user:User = {};
+  user: User = {};
 
-  constructor(private snackBar:MatSnackBar, private fb: FormBuilder, private loginS:LoginService, private r: Router) {
+  constructor(private snackBar: MatSnackBar, private fb: FormBuilder, private loginS: LoginService, private r: Router) {
     this.loginForm = this.fb.group({
       userId: ['', Validators.required],
       password: ['', Validators.required]
@@ -28,29 +28,31 @@ export class LoginComponent {
       const password = this.loginForm.get('password')?.value;
       this.user.userId = userId;
       this.user.password = password;
+
       console.log("working");
       this.loginS.generateToken(this.user).subscribe(
         (response: any) => {
-        console.log(response);
-        
-        console.log("token "+ response.token);
-        this.loginS.loginUser(response.token);  // save the token in local storage 
-          console.log("Token in LoginComponent"+this.loginS.getToken());
-        // alert("login successful");
-        this.snackBar.open("Login Successful","Success!",{
-          duration: 3000
-        });
-        this.r.navigateByUrl("home");
-      },
-      (err) => {
-        this.snackBar.open("Invalid Credentials","Try Again",{
-          duration: 3000
-        });
-        console.log(err.message);
-      })
+          console.log(response);
+          console.log("token " + response.token);
 
- }
-      
+          // Assuming the username is returned in the response
+          const username = response.username || this.user.userId; // Adjust as needed
+
+          this.loginS.loginUser(response.token, username); // Pass token and username
+          console.log("Token in LoginComponent: " + this.loginS.getToken());
+
+          this.snackBar.open("Login Successful", "Success!", {
+            duration: 3000
+          });
+          this.r.navigateByUrl("home");
+        },
+        (err) => {
+          this.snackBar.open("Invalid Credentials", "Try Again", {
+            duration: 3000
+          });
+          console.log(err.message);
+        }
+      );
     }
   }
-
+}

@@ -1,21 +1,28 @@
 <mat-toolbar class="navbar-bg">
-  <div class="container-fluid">
-    <div class="d-flex flex-wrap align-items-center justify-content-between">
-      <div>
-        <ul class="nav">
-          <li><a routerLink="/home" class="nav-link px-2 text-white">Home</a></li>
-          <li><a routerLink="/favourite-restaurant" class="nav-link px-2 text-white">Favourite Restaurant</a></li>
-        </ul>
-      </div>
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+    <!-- Left section: Navigation links -->
+    <div class="navbar-links">
+      <ul class="nav">
+        <li><a routerLink="/home" class="nav-link px-2 ">Home</a></li>
+        <li><a routerLink="/favourite-restaurant" class="nav-link px-2 ">Favourite Restaurant</a></li>
+      </ul>
+    </div>
 
-      <div class="title">
-        Foodie App
-      </div>
+    <!-- Center section: Title -->
+    <div class="navbar-title">
+      Foodie App
+    </div>
 
-      <div>
-        <button *ngIf="!isUserLoggedIn()" class="btn" (click)="navigateToLogin()">Login</button>
-        <button *ngIf="isUserLoggedIn()" class="btn" (click)="logOut()">Logout</button>
-      </div>
+    <!-- Right section: User login/logout -->
+    <div class="navbar-user-actions d-flex align-items-center">
+      <img class="profile"  src="../../assets/images/profile.jpg" alt="profile Img">
+      <span *ngIf="isUserLoggedIn()" matTooltip="UserId" class="username-text mr-2">{{ username }}</span>
+      <button *ngIf="!isUserLoggedIn()" matTooltip="Login" class="btn btn-login" (click)="navigateToLogin()">
+        <mat-icon>login</mat-icon>
+      </button>
+      <button *ngIf="isUserLoggedIn()" matTooltip="Logout" class="btn btn-logout" (click)="logOut()">
+        <mat-icon>logout</mat-icon>
+      </button>
     </div>
   </div>
 </mat-toolbar>

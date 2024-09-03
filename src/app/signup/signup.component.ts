@@ -19,13 +19,13 @@ export class SignupComponent {
   signupForm: FormGroup;
   u: User = {};
 
-  constructor(private snackBar:MatSnackBar,private fb: FormBuilder, private user:UserService, private r: Router) {
+  constructor(private snackBar: MatSnackBar, private fb: FormBuilder, private user: UserService, private r: Router) {
     this.signupForm = this.fb.group({
-      username: [  '', [Validators.required, Validators.minLength(3),Validators.maxLength(50),
-          Validators.pattern('^[a-zA-Z][a-zA-Z0-9]*$'),
-        ],
+      username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50),
+      Validators.pattern('^[a-zA-Z][a-zA-Z0-9]*$'),
       ],
-      
+      ],
+
       email: [
         '',
         [
@@ -76,17 +76,29 @@ export class SignupComponent {
       this.u.userId = stringValue;
       this.user.registerUser(this.u).subscribe(
         (response: any) => {
-        console.log(response);
-        alert(`Kindly Note UserId provided Below As it is essential for login
-          userId: ${this.u.userId}`);
-        this.r.navigateByUrl("home");
-      },
-      (err) => {
-        this.snackBar.open("Provide Valid Credentials","Try Again",{
-          duration: 3000
-        });
-        console.log(err.message);
-      })
+          console.log(response);
+
+          // Display the user ID in the snack bar
+          this.snackBar.open(
+            `Kindly note the User ID provided below as it is essential for login:
+            userId: ${this.u.userId}`,
+            "OK",
+            {
+              duration: 10000, // Duration in milliseconds
+              verticalPosition: 'top' // Optional: Change the position of the snackbar
+            }
+          );
+
+          // Navigate to home
+          this.r.navigateByUrl("home");
+        }
+        ,
+        (err) => {
+          this.snackBar.open("Provide Valid Credentials", "Try Again", {
+            duration: 3000
+          });
+          console.log(err.message);
+        })
 
     }
   }
