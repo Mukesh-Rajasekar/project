@@ -13,10 +13,10 @@
                 Username is required.
               </div>
               <div *ngIf="signupForm.get('username')?.errors?.['minlength']">
-                Username must be at least 3 characters.
+                Username must have at least 3 characters.
               </div>
               <div *ngIf="signupForm.get('username')?.errors?.['maxlength']">
-                Username cannot be more than 50 characters.
+                Username cannot exceed 50 characters.
               </div>
               <div *ngIf="signupForm.get('username')?.errors?.['pattern']">
                 Username shouldn't start with a digit.
@@ -32,11 +32,18 @@
                 Email is required.
               </div>
               <div *ngIf="signupForm.get('email')?.errors?.['email']">
-                A valid email is required.
+                Please enter a valid email address.
               </div>
-              <div *ngIf="signupForm.get('email')?.errors?.['domainInvalid']">
-                Please enter an email address with one of the following domains: gmail.com, yahoo.com, outlook.com.
-              </div>
+
+              <div *ngIf="signupForm.get('email')?.errors?.['domainLength']">
+                After '@' must contain at least 4 alphabetic characters.
+            </div>
+              <div *ngIf="signupForm.get('email')?.errors?.['dotCom']">
+                The email must end with '.com'.
+            </div>
+            <div *ngIf="signupForm.get('email')?.errors?.['localPartLength']">
+              Before '@' must have at least 5 characters.
+          </div>
             </div>
           </div>
 
@@ -51,7 +58,8 @@
                 Password must be at least 6 characters.
               </div>
               <div *ngIf="signupForm.get('password')?.errors?.['pattern']">
-                Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.
+                Password must contain at least one uppercase letter, one lowercase letter, one number, and one special
+                character.
               </div>
             </div>
           </div>

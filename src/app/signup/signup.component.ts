@@ -5,6 +5,7 @@ import {
   Validators,
   AbstractControl,
   ValidatorFn,
+  ValidationErrors,
 } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
@@ -32,11 +33,9 @@ export class SignupComponent {
         [
           Validators.required,
           Validators.email,
-          this.customEmailDomainValidator([
-            /@gmail\.com$/,
-            /@yahoo\.com$/,
-            /@outlook\.com$/
-          ]),
+          this.domainLengthValidator(),
+          this.dotComValidator(),
+          this.emailValidators()
         ],
       ],
       password: [
@@ -52,10 +51,51 @@ export class SignupComponent {
     });
   }
 
-    customEmailDomainValidator(domains: RegExp[]): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } | null => {
-      if (control.value && !domains.some(domain => domain.test(control.value))) {
-        return { domainInvalid: true };
+  emailValidators(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const email = control.value;
+      if (email) {
+        const [localPart, domainPart] = email.split('@');
+  
+        // Check if local part has at least 5 characters
+        if (localPart.length < 5) {
+          return { localPartLength: true };
+        }
+  
+        // Check if domain part has at least 4 characters
+        if (domainPart && domainPart.length < 4) {
+          return { domainLength: true };
+        }
+  
+        // Check if domain ends with '.com'
+        if (domainPart && !domainPart.endsWith('.com')) {
+          return { dotCom: true };
+        }
+      }
+      return null;
+    };
+  }
+
+  domainLengthValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const email = control.value;
+      if (email) {
+        const domainPart = email.split('@')[1];
+        // Extract only alphabetic characters from the domain part
+        const alphabeticDomainPart = domainPart?.replace(/[^a-zA-Z]/g, ''); // Remove non-alphabetic characters
+        if (alphabeticDomainPart && alphabeticDomainPart.length < 4) {
+          return { domainLength: true };
+        }
+      }
+      return null;
+    };
+  }
+
+  dotComValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const email = control.value;
+      if (email && !email.endsWith('.com')) {
+        return { dotCom: true };
       }
       return null;
     };
