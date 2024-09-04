@@ -19,7 +19,7 @@
                 Username cannot be more than 50 characters.
               </div>
               <div *ngIf="signupForm.get('username')?.errors?.['pattern']">
-                Username must start with a letter and contain no spaces.
+                Username shouldn't start with a digit.
               </div>
             </div>
           </div>
@@ -35,7 +35,7 @@
                 A valid email is required.
               </div>
               <div *ngIf="signupForm.get('email')?.errors?.['domainInvalid']">
-                Email must be from the domain @gmail.com.
+                Please enter an email address with one of the following domains: gmail.com, yahoo.com, outlook.com.
               </div>
             </div>
           </div>

@@ -3,7 +3,7 @@
       {
         "restaurantId": "R001",
         "name": "Ofen",
-        "location": "Banjara Hills, Hyderabad",
+        "location": "Mahatma Gandhi Road, Bangalore",
         "imagePath": "assets/images/ofen.jpg",
         "cuisine": [{
           "cuisineId": 1,
@@ -29,7 +29,7 @@
       {
         "restaurantId": "R003",
         "name": "Mindsapce Social",
-        "location": "Jubilee Hills, Hyderabad",
+        "location": "Raheja Tower, Mumbai",
         "imagePath": "assets/images/mindspace-social.jpg",
         "cuisine": [{
           "cuisineId": 3,
@@ -42,7 +42,7 @@
       {
         "restaurantId": "R004",
         "name": "White Hart",
-        "location": "Chennai",
+        "location": "T Nagar,Chennai",
         "imagePath": "assets/images/white-hart.jpg",
         "cuisine": [{
           "cuisineId": 4,
@@ -55,7 +55,7 @@
       {
         "restaurantId": "R005",
         "name": "Nayab Cafe",
-        "location": "Hi-tech City",
+        "location": "M-39, Shankar Market, Delhi",
         "imagePath": "assets/images/nayab-cafe.jpg",
         "cuisine": [{
           "cuisineId": 5,
@@ -68,7 +68,7 @@
       {
         "restaurantId": "R006",
         "name": "You Mee",
-        "location": "Kukatpally, Hyderabad",
+        "location": "Raipur, Chhattisgarh",
         "imagePath": "assets/images/you-mee.jpg",
         "cuisine": [{
           "cuisineId": 6,
@@ -80,7 +80,7 @@
       {
         "restaurantId": "R007",
         "name": "TGI Fridays",
-        "location": "Nexus Hyderabad, Kukatpally, Hyderabad",
+        "location": "Samba, Jammu and Kashmir",
         "imagePath": "assets/images/tgi-fridays.jpg",
         "cuisine": [{
           "cuisineId": 7,
@@ -93,7 +93,7 @@
       {
         "restaurantId": "R008",
         "name": "The Punjabis Swag",
-        "location": "Kondapur, Hyderabad",
+        "location": "Shillong, Meghalaya",
         "imagePath": "assets/images/thePunjabi-swags.jpg",
         "cuisine": [{
           "cuisineId": 8,
@@ -119,7 +119,7 @@
       {
         "restaurantId": "R010",
         "name": "WOW! Momo",
-        "location": "Moosapet, Hyderabad",
+        "location": "Kochi, Kerala",
         "imagePath": "assets/images/wow-momo.jpg",
         "cuisine": [{
           "cuisineId": 10,

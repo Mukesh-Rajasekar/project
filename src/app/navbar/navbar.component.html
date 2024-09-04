@@ -3,25 +3,24 @@
     <!-- Left section: Navigation links -->
     <div class="navbar-links">
       <ul class="nav">
-        <li><a routerLink="/home" class="nav-link px-2 ">Home</a></li>
-        <li><a routerLink="/favourite-restaurant" class="nav-link px-2 ">Favourite Restaurant</a></li>
+        <li><a routerLink="/home"  matTooltip="Home" class="nav-link px-2 "><img src="../../assets/images/HomeP.png" height="100px" alt="" srcset=""></a></li>
+        <li><a routerLink="/favourite-restaurant"  matTooltip="View Favorite Restaurants" class="nav-link px-2 "><img src="../../assets/images/red-removebg-preview.png" height="100px" alt="" srcset=""></a></li>
       </ul>
     </div>
 
     <!-- Center section: Title -->
     <div class="navbar-title">
-      Foodie App
+      <img src="../../assets/images/logo-removebg-preview.png" height="120px" alt="" srcset="">
     </div>
 
     <!-- Right section: User login/logout -->
     <div class="navbar-user-actions d-flex align-items-center">
-      <img class="profile"  src="../../assets/images/profile.jpg" alt="profile Img">
-      <span *ngIf="isUserLoggedIn()" matTooltip="UserId" class="username-text mr-2">{{ username }}</span>
       <button *ngIf="!isUserLoggedIn()" matTooltip="Login" class="btn btn-login" (click)="navigateToLogin()">
-        <mat-icon>login</mat-icon>
+        <img src="../../assets/images/login.png" height="110px" alt="Login Icon" class="icon-img">
       </button>
       <button *ngIf="isUserLoggedIn()" matTooltip="Logout" class="btn btn-logout" (click)="logOut()">
-        <mat-icon>logout</mat-icon>
+        <img src="../../assets/images/logout.png" height="110px" alt="Logout Icon" class="icon-img">
+        
       </button>
     </div>
   </div>

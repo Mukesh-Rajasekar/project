@@ -4,6 +4,7 @@ import {
   FormGroup,
   Validators,
   AbstractControl,
+  ValidatorFn,
 } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
@@ -31,7 +32,11 @@ export class SignupComponent {
         [
           Validators.required,
           Validators.email,
-          this.customEmailDomainValidator(/@gmail\.com$/),
+          this.customEmailDomainValidator([
+            /@gmail\.com$/,
+            /@yahoo\.com$/,
+            /@outlook\.com$/
+          ]),
         ],
       ],
       password: [
@@ -47,10 +52,9 @@ export class SignupComponent {
     });
   }
 
-  customEmailDomainValidator(domainPattern: RegExp) {
-    return (control: AbstractControl) => {
-      const value = control.value;
-      if (value && !domainPattern.test(value)) {
+    customEmailDomainValidator(domains: RegExp[]): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      if (control.value && !domains.some(domain => domain.test(control.value))) {
         return { domainInvalid: true };
       }
       return null;
@@ -79,22 +83,22 @@ export class SignupComponent {
           console.log(response);
 
           // Display the user ID in the snack bar
-          this.snackBar.open(
-            `Kindly note the User ID provided below as it is essential for login:
-            userId: ${this.u.userId}`,
-            "OK",
-            {
-              duration: 10000, // Duration in milliseconds
-              verticalPosition: 'top' // Optional: Change the position of the snackbar
-            }
-          );
+          // this.snackBar.open(
+          //   `Kindly note the User ID provided below as it is essential for login:
+          //   userId: ${this.u.userId}`,
+          //   "OK",
+          //   {
+          //     duration: 10000, // Duration in milliseconds
+          //     verticalPosition: 'top' // Optional: Change the position of the snackbar
+          //   }
+          // );
 
           // Navigate to home
           this.r.navigateByUrl("home");
         }
         ,
         (err) => {
-          this.snackBar.open("Provide Valid Credentials", "Try Again", {
+          this.snackBar.open("Username or Email Address Already Exists", " ", {
             duration: 3000
           });
           console.log(err.message);

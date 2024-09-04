@@ -16,7 +16,7 @@ export class LoginComponent {
 
   constructor(private snackBar: MatSnackBar, private fb: FormBuilder, private loginS: LoginService, private r: Router) {
     this.loginForm = this.fb.group({
-      userId: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
@@ -24,9 +24,10 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       console.log('Form Submitted', this.loginForm.value);
-      const userId = this.loginForm.get('userId')?.value;
+      const email = this.loginForm.get('email')?.value;
       const password = this.loginForm.get('password')?.value;
-      this.user.userId = userId;
+       this.user.userId = this.loginS.getUserId();
+      this.user.email = email;
       this.user.password = password;
 
       console.log("working");
@@ -47,7 +48,7 @@ export class LoginComponent {
           this.r.navigateByUrl("home");
         },
         (err) => {
-          this.snackBar.open("Invalid Credentials", "Try Again", {
+          this.snackBar.open("Invalid Credentials", " ", {
             duration: 3000
           });
           console.log(err.message);

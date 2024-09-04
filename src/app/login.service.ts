@@ -25,8 +25,14 @@ export class LoginService {
 
   
 
+  
+
   generateToken(user: User): Observable<any> {
 
+    console.log("Inside generate token method: ");
+    
+    console.log(user);
+    
     return this.httpClient.post<any>(this.url + 'login', user);
   }
 

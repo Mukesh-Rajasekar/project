@@ -39,6 +39,14 @@ url:string= 'http://localhost:8765/api/v2/';
     );
   }
 
+  deleteFavRest(restaurantId:string):Observable<any>{
+    //    /user/deleterestaurant/{restaurantId}
+    console.log("Inside User Service : "+restaurantId);
+    console.log("URL being created: "+`${this.url}user/deleterestaurant/${restaurantId}`);
+    return this.http.delete<any>(`${this.url}user/deleterestaurant/${restaurantId}`);
+    
+    // return this.http.delete<any>(`${this.url}user/deleterestaurant/${restaurantId}`);
+  }
   // addFav(restaurantId:string){
   //   console.log("Inside User Service addFav");
   //   let restaurant: Restaurant = {};

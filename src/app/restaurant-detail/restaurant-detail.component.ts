@@ -9,6 +9,7 @@ import { RestaurantServiceService } from '../restaurant-service.service';
 })
 export class RestaurantDetailComponent implements OnInit {
   restaurant: any = {};
+  food:any[]=[];
 
   constructor(
     private route: ActivatedRoute,
@@ -22,6 +23,8 @@ export class RestaurantDetailComponent implements OnInit {
       this.restaurantService.getRestaurantById(id).subscribe(data => {
         
         this.restaurant = data;
+        this.food = data.foodItems;
+        console.log(this.food);
         console.log(this.restaurant);
       });
     } else {
@@ -29,16 +32,5 @@ export class RestaurantDetailComponent implements OnInit {
     }
   }
 
-  addFavRestaurant(){
-    // this.ac.paramMap.subscribe((a) => {
-    //   let empid = a.get("id") ?? 0;
-    //   console.log(empid);
-    //   this.empservice.getOneEmp(+empid).subscribe((data) => {
-    //     this.oneEmployee = data;
-    //      console.log(this.oneEmployee);
-
-    //   })
-    //  })
-    
-  }
+ 
 }

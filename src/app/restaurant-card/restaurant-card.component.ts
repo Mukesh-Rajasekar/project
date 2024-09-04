@@ -79,7 +79,7 @@ export class RestaurantCardComponent implements OnInit {
           if (error.status === 409) {
             console.error("Restaurant is already in favorites");
 
-            this.snackBar.open("This restaurant is already in your favorite list", "Try Others", {
+            this.snackBar.open("This restaurant is already in your favorite list","", {
               duration: 3000
             });
           } else {

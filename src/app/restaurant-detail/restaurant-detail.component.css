@@ -48,6 +48,9 @@
   padding: 40px 20px;
   background-color: #fafafa;
   min-height: 100vh;
+  /* background-image: url('../../assets/images/rest.jpg');
+  background-size:contain;
+  background-position: center; */
 }
 
 .restaurant-detail-card {
