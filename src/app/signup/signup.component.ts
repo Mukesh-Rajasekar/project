@@ -56,17 +56,17 @@ export class SignupComponent {
       const email = control.value;
       if (email) {
         const [localPart, domainPart] = email.split('@');
-  
+
         // Check if local part has at least 5 characters
         if (localPart.length < 5) {
           return { localPartLength: true };
         }
-  
+
         // Check if domain part has at least 4 characters
         if (domainPart && domainPart.length < 4) {
           return { domainLength: true };
         }
-  
+
         // Check if domain ends with '.com'
         if (domainPart && !domainPart.endsWith('.com')) {
           return { dotCom: true };
@@ -123,15 +123,14 @@ export class SignupComponent {
           console.log(response);
 
           // Display the user ID in the snack bar
-          // this.snackBar.open(
-          //   `Kindly note the User ID provided below as it is essential for login:
-          //   userId: ${this.u.userId}`,
-          //   "OK",
-          //   {
-          //     duration: 10000, // Duration in milliseconds
-          //     verticalPosition: 'top' // Optional: Change the position of the snackbar
-          //   }
-          // );
+          this.snackBar.open(
+            "SingUp Successfully",
+            " ",
+            {
+              duration: 5000, // Duration in milliseconds
+              verticalPosition: 'bottom' // Optional: Change the position of the snackbar
+            }
+          );
 
           // Navigate to home
           this.r.navigateByUrl("home");
