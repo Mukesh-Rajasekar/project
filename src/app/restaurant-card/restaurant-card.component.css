@@ -118,8 +118,23 @@
   font-size: 20px;
   cursor: pointer;
   color: rgb(207, 196, 196); /* Default color */
+  margin-bottom: 20px;
 }
 
 .favorite-button.favorited {
   color: red; /* Color when favorited */
+}
+
+marquee {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  color: #000000;
+  /* background-color: #46c6dd; */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Times New Roman', Times, serif;
 }

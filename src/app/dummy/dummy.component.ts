@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../user.service';
 import { LoginService } from '../login.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dummy',
@@ -9,7 +10,7 @@ import { LoginService } from '../login.service';
 })
 export class DummyComponent {
   favRest: any[] = [];
-  constructor(private user: UserService, private logins: LoginService) { }
+  constructor(private user: UserService, private logins: LoginService,private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     console.log('working');
@@ -27,12 +28,25 @@ export class DummyComponent {
 
   deleteFav(restaurantId: any) {
     console.log("Working: " + restaurantId);
-    this.user.deleteFavRest(restaurantId).subscribe(data => {
-      console.log("Delete fav restaurant component");
-      this.refreshFavorites();
+    this.user.deleteFavRest(restaurantId).subscribe({
+      next: (data) => {
+        console.log("Deleted favorite restaurant");
+        this.refreshFavorites();
+        this.snackBar.open('Favorite restaurant deleted successfully!', ' ', {
+          duration: 5000,
+          verticalPosition: 'bottom',
+        });
+      },
+      // error: () => {
+      //   this.snackBar.open('Error occurred while deleting favorite restaurant.', 'Close', {
+      //     duration: 3000,
+      //     verticalPosition: 'bottom',
+      //     horizontalPosition: 'right',
+      //   });
+      // }
     });
   }
-
+  
   refreshFavorites() {
     let id = this.logins.getUserId();
     this.user.getFavRestaurants().subscribe({

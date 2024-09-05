@@ -21,19 +21,18 @@
     </div>
   </div> -->
 
-  <div class="restaurant-detail-container">
-    <div class="restaurant-detail-card">
-      <img [src]="restaurant.imagePath" alt="{{ restaurant.name }}" class="restaurant-image" />
-      <div class="restaurant-detail-content">
-        <h2>{{ restaurant.name }}</h2>
-        <p><strong>Cuisine:</strong> {{ restaurant.cuisine?.[0]?.name || 'N/A' }}</p>
-        <p><strong>Location:</strong> {{ restaurant.location }}</p>
-        <p><strong>Description:</strong> {{ restaurant.cuisine?.[0]?.description || 'N/A' }}</p>
-        <p><strong>Food Items:</strong></p>
-   <ng-container *ngFor="let card of food; let i = index">
-    {{ card?.dishName || 'N/A' }}<ng-container *ngIf="i < food.length - 1">, </ng-container>
-  </ng-container>
-      </div>
+<div class="restaurant-detail-container">
+  <div class="restaurant-detail-card">
+    <img [src]="restaurant.imagePath" alt="{{ restaurant.name }}" class="restaurant-image" />
+    <div class="restaurant-detail-content">
+      <h2>{{ restaurant.name }}</h2>
+      <p><strong>Cuisine:</strong> {{ restaurant.cuisine?.[0]?.name || 'N/A' }}</p>
+      <p><strong>Location:</strong> {{ restaurant.location }}</p>
+      <p><strong>Description:</strong> {{ restaurant.cuisine?.[0]?.description || 'N/A' }}</p>
+      <p><strong>Food Items:</strong></p>
+      <ng-container *ngFor="let card of food; let i = index">
+        {{ card?.dishName || 'N/A' }}<ng-container *ngIf="i < food.length - 1">, </ng-container>
+        </ng-container>
     </div>
   </div>
-  
+</div>

@@ -17,6 +17,9 @@ export class RestaurantCardComponent implements OnInit {
   locations: string[] = [];
   u: string = "";
 
+  searchTerm: string = '';
+  selectedCity: string = '';
+
   constructor(
     private snackBar: MatSnackBar,
     private restaurantData: RestaurantServiceService,
@@ -35,7 +38,15 @@ export class RestaurantCardComponent implements OnInit {
       this.filteredData = data;
 
 
-      this.locations = [...new Set(data.map(restaurant => restaurant.location))];
+      this.locations = [
+        ...new Set(
+          data.map(restaurant => {
+            const parts = restaurant.location.split(',');
+            // Get the last part and trim whitespace to get the city name
+            return parts[parts.length - 1].trim();
+          })
+        )
+      ];
     });
   }
 
@@ -43,25 +54,51 @@ export class RestaurantCardComponent implements OnInit {
     this.router.navigate(['/restaurant', id]);
   }
 
-  filterData(searchTerm: string): void {
-    this.filteredData = this.rData.filter(restaurant =>
-      restaurant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      restaurant.location.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  }
+  // filterData(searchTerm: string): void {
+  //   this.filteredData = this.rData.filter(restaurant =>
+  //     restaurant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //     restaurant.location.toLowerCase().includes(searchTerm.toLowerCase())
+  //   );
+  // }
 
-  filterByLocation(event: Event): void {
+  // filterByLocation(event: Event): void {
+  //   const selectElement = event.target as HTMLSelectElement;
+  //   const location = selectElement.value;
+
+  //   if (location) {
+  //     this.filteredData = this.rData.filter(restaurant =>
+  //       restaurant.location === location
+  //     );
+  //   } else {
+  //     this.filteredData = this.rData;
+  //   }
+  // }
+  onSearchChanged(searchTerm: string): void {
+    this.searchTerm = searchTerm.toLowerCase(); // store search term in lowercase
+    this.applyFilters(); // apply filters after search input is changed
+  }
+  
+  onLocationChanged(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;
-    const location = selectElement.value;
-
-    if (location) {
-      this.filteredData = this.rData.filter(restaurant =>
-        restaurant.location === location
-      );
-    } else {
-      this.filteredData = this.rData;
-    }
+    this.selectedCity = selectElement.value.toLowerCase().trim(); // store selected city
+    this.applyFilters(); // apply filters after city is changed
   }
+  applyFilters(): void {
+    this.filteredData = this.rData.filter(restaurant => {
+      const restaurantLocation = restaurant.location.toLowerCase().trim();
+      const restaurantCity = restaurantLocation.split(',').pop().trim();
+  
+      // Check if the restaurant is in the selected city
+      const locationMatch = this.selectedCity === '' || restaurantCity === this.selectedCity;
+  
+      // Check if the restaurant matches the search term
+      const searchTermMatch = restaurant.name.toLowerCase().includes(this.searchTerm) || 
+                              restaurantLocation.includes(this.searchTerm);
+  
+      return locationMatch && searchTermMatch;
+    });
+  }
+  
 
   toggleFavorite(card: any, event: Event) {
     event.stopPropagation();

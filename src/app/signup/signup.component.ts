@@ -34,7 +34,7 @@ export class SignupComponent {
           Validators.required,
           Validators.email,
           this.domainLengthValidator(),
-          this.dotComValidator(),
+          // this.dotComValidator(),
           this.emailValidators()
         ],
       ],
@@ -91,15 +91,15 @@ export class SignupComponent {
     };
   }
 
-  dotComValidator(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      const email = control.value;
-      if (email && !email.endsWith('.com')) {
-        return { dotCom: true };
-      }
-      return null;
-    };
-  }
+  // dotComValidator(): ValidatorFn {
+  //   return (control: AbstractControl): ValidationErrors | null => {
+  //     const email = control.value;
+  //     if (email && !email.endsWith('.com')) {
+  //       return { dotCom: true };
+  //     }
+  //     return null;
+  //   };
+  // }
 
   onSubmit() {
     if (this.signupForm.valid) {

@@ -1,13 +1,18 @@
 
 
 <div class = "card-body">
-  <app-search (searchChanged)="filterData($event)"></app-search>
-<div class="filter-container">
-  <select id="location-filter" (change)="filterByLocation($event)">
-    <option value="">All Locations</option>
-    <option *ngFor="let location of locations" [value]="location">{{ location }}</option>
-  </select>
-</div>
+  <app-search (searchChanged)="onSearchChanged($event)"></app-search>
+
+  <div class="filter-container">
+    <select id="location-filter" (change)="onLocationChanged($event)">
+      <option value="">All Cities</option>
+      <option *ngFor="let city of locations" [value]="city">{{ city }}</option>
+    </select>
+  </div>
+  
+
+<marquee behavior="scroll" direction="left">If you're interested in any restaurant, you can add it to your favorites list♥♥♥ .</marquee>
+
 
 <div class="card-container">
   <div class="card" *ngFor="let card of filteredData" (click)="viewDetails(card.restaurantId)">

@@ -38,9 +38,6 @@
               <div *ngIf="signupForm.get('email')?.errors?.['domainLength']">
                 After '@' must contain at least 4 alphabetic characters.
             </div>
-              <div *ngIf="signupForm.get('email')?.errors?.['dotCom']">
-                The email must end with '.com'.
-            </div>
             <div *ngIf="signupForm.get('email')?.errors?.['localPartLength']">
               Before '@' must have at least 5 characters.
           </div>

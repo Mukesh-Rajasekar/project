@@ -9,17 +9,19 @@
     </div>
 
     <!-- Center section: Title -->
+   <a routerLink="/home">
     <div class="navbar-title">
       <img src="../../assets/images/logo-removebg-preview.png" height="120px" alt="" srcset="">
     </div>
+   </a>
 
     <!-- Right section: User login/logout -->
     <div class="navbar-user-actions d-flex align-items-center">
       <button *ngIf="!isUserLoggedIn()" matTooltip="Login" class="btn btn-login" (click)="navigateToLogin()">
-        <img src="../../assets/images/login.png" height="110px" alt="Login Icon" class="icon-img">
+        <img src="../../assets/images/login.png" height="90px" alt="Login Icon" class="icon-img">
       </button>
       <button *ngIf="isUserLoggedIn()" matTooltip="Logout" class="btn btn-logout" (click)="logOut()">
-        <img src="../../assets/images/logout.png" height="110px" alt="Logout Icon" class="icon-img">
+        <img src="../../assets/images/logout.png" height="90px" alt="Logout Icon" class="icon-img">
         
       </button>
     </div>
