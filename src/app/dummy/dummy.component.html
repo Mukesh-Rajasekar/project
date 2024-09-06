@@ -1,25 +1,21 @@
-<!-- <div class="card" *ngFor="let card of favRest">
-      <h4>{{ card.name }}</h4>
-    
-    </div> -->
-
 <div class="body-container">
-  
-  <div class="card-container">
-  <div class="card" *ngFor="let card of favRest">
-    
-    <img [src]="card.imagePath" alt="{{ card.name }}" class="card-image"/>
-    <div class="card-content">
-      <h4>{{ card.name }}</h4>
-    <p>{{ card.cuisine[0].name }}</p>
-    <p>{{ card.location }}</p>
-    <button (click)="deleteFav(card.restaurantId)" matTooltip="Remove Favorite Restaurant"><mat-icon>delete</mat-icon></button>
+  <!-- Show the card list if there are favorites, otherwise display the "no favorites" message -->
+  <div class="card-container" *ngIf="hasFavorites; else noFavorites">
+    <div class="card" *ngFor="let card of favRest">
+      <img [src]="card.imagePath" alt="{{ card.name }}" class="card-image"/>
+      <div class="card-content">
+        <h4>{{ card.name }}</h4>
+        <p>{{ card.cuisine[0].name }}</p>
+        <p>{{ card.location }}</p>
+        <button (click)="deleteFav(card.restaurantId)" matTooltip="Remove Favorite Restaurant">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
     </div>
   </div>
 
+  <!-- Template for showing a message when no favorites are found -->
+  <ng-template #noFavorites>
+    <p class="no-favorites-message">Your favorite restaurant list is Empty.</p>
+  </ng-template>
 </div>
-
-  
-  
-
-   

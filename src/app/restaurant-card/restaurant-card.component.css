@@ -126,15 +126,11 @@
 }
 
 marquee {
-  font-family: Georgia, serif;
-  font-size: 16px;
-  color: #000000;
-  /* background-color: #46c6dd; */
+  font-size: 18px;
+  color: #d52607; /* Tomato color for text */
+  background-color: #f0f8ff; /* Light blue background */
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  overflow: hidden;
-  white-space: nowrap;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  font-family: 'Times New Roman', Times, serif;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-family: 'Arial', sans-serif;
 }
